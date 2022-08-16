@@ -52,15 +52,12 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get("/", function (req, res) {
-  req.body = arr;
-  res.send(req.body);
+  res.send(arr);
 });
 
-// app.post("/", function (req, res) {
-//   if(req.body.number!==undefined){
-//     arr.push(req.body=arr)
-//     res.send(req.body)
-//   }
-// });
+app.post("/", function (req, res,next) {
+  const obj=arr[req.body.id]
+   res.send(arr[req.body.id])
+})
 
 app.listen(3000);

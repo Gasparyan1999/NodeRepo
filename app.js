@@ -57,7 +57,7 @@ app.get("/", function (req, res) {
 
 app.post("/", function (req, res,next) {
   const obj=arr[req.body.id]
-   res.send(arr[req.body.id])
+   res.send(obj)
 })
 
 app.listen(3000);

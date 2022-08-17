@@ -18,7 +18,7 @@ app.get("/:id", async function (req, res) {
   const user = await pool.query(
     `SELECT * FROM mytable WHERE id=${req.params["id"]}`
   );
-  res.send(...user.rows);
+  res.send(user.rows);
 });
 
 app.listen(PORT, () => {

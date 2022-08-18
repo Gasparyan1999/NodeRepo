@@ -21,24 +21,23 @@ app.get("/:id", async function (req, res) {
   res.send(user.rows);
 });
 
-app.post("/",  function (req, res) {
+app.post("/", async function (req, res) {
   const value = [
     req.body[0][1],
     req.body[1][1],
     req.body[2][1],
     req.body[3][1],
+    req.body[4],
   ];
-  console.log(value);
-  const user =  pool.query(
-    `INSERT INTO mytable(id,name,create,owner,update) VALUES($1,$2,$3,$4)`,
-    value,
-    (err, result) => {
-      console.log(result)
-    }
+  const user = await pool.query(
+    `INSERT INTO mytable VALUES
+    ('${value[4]}'::integer,'${value[0]}'::text, '${value[1]}'::text,'${value[2]}'::text, '${value[3]}'::text) RETURNING *`
   );
-  console.log(user)
+  res.json(user.rows);
 });
 
 app.listen(PORT, () => {
   console.log(`Server start in ${PORT}`);
 });
+
+

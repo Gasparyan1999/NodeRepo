@@ -6,7 +6,8 @@
     "mkdir": "^0.0.2",
     "myapp": "^0.0.0-1",
     "nodemon": "^2.0.19",
-    "pg": "^8.7.3"
+    "pg": "^8.7.3",
+    "uuid": "^8.3.2"
   },
   "name": "node",
   "version": "1.0.0",
@@ -14,10 +15,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"nodemon app.js"
+    "dev": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
   "description": ""
 }
-
